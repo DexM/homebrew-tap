@@ -1,0 +1,46 @@
+name: Validate Casks
+
+on:
+  - push
+
+jobs:
+  validate-cask:
+    name: Validate Cask "${{ matrix.cask }}"
+    runs-on: macos-26
+
+    strategy:
+      fail-fast: false
+      matrix:
+        cask:
+          - docker-desktop
+
+    env:
+      TAP: ${{ github.repository }}
+      CASK: ${{ github.repository }}/${{ matrix.cask }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Update Homebrew
+        run: brew update --verbose
+
+      - name: Turn On Developer Mode
+        run: brew developer on --verbose
+
+      - name: Create Local Tap
+        run: |
+          mkdir -p "$(brew --repository "$TAP")"
+          cp -R . "$(brew --repository "$TAP")"
+
+      - name: Trust Local Tap
+        run: brew trust --tap --verbose "$TAP"
+
+      - name: Check Style
+        run: brew style --cask --verbose "$CASK"
+
+      - name: Audit Cask
+        run: brew audit --strict --cask --verbose "$CASK"
+
+      - name: Install Cask
+        run: brew install --cask --verbose "$CASK"
