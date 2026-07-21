@@ -17,8 +17,6 @@ cask "apple-container" do
 
   pkg "container-#{version}-installer-signed.pkg"
 
-  generate_completions_from_executable "/usr/local/bin/container", "--generate-completion-script"
-
   uninstall_preflight do
     container_bin="/usr/local/bin/container"
     next unless File.executable?(container_bin)
