@@ -34,6 +34,9 @@ cask "docker-desktop" do
   zsh_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion"
   zsh_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker.zsh-completion"
 
+  generate_completions_from_executable "Docker.app/Contents/Resources/bin/kubectl",
+                                       shell_parameter_format: :cobra
+
   uninstall launchctl: [
               "com.docker.helper",
               "com.docker.socket",
