@@ -1,4 +1,4 @@
-cask "docker-desktop" do
+cask "docker-desktop-clean" do
   arch arm: "arm64", intel: "amd64"
 
   version "4.83.0,234302"
@@ -23,7 +23,10 @@ cask "docker-desktop" do
   end
 
   auto_updates true
-  conflicts_with cask: "rancher"
+  conflicts_with cask: [
+    "docker-desktop",
+    "rancher",
+  ]
   depends_on macos: :sonoma
 
   app "Docker.app"

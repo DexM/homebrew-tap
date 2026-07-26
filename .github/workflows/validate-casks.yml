@@ -13,7 +13,7 @@ jobs:
       matrix:
         cask:
           - apple-container
-          - docker-desktop
+          - docker-desktop-clean
 
     env:
       TAP: ${{ github.repository }}
