@@ -36,7 +36,6 @@ cask "docker-desktop-clean" do
   fish_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker.fish-completion"
   zsh_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion"
   zsh_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker.zsh-completion"
-
   generate_completions_from_executable "Docker.app/Contents/Resources/bin/kubectl",
                                        shell_parameter_format: :cobra
 
