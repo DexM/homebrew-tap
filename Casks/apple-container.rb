@@ -17,12 +17,10 @@ cask "apple-container" do
 
   pkg "container-#{version}-installer-signed.pkg"
 
-  uninstall_preflight do
-    container_bin="/usr/local/bin/container"
-    next unless File.executable?(container_bin)
-
-    system_command container_bin,
-                   args: ["system", "stop"]
+  uninstall_preflight_steps do
+    run "/usr/local/bin/container",
+        args:         ["system", "stop"],
+        must_succeed: false
   end
 
   uninstall script: {
