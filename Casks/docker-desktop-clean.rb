@@ -1,9 +1,9 @@
 cask "docker-desktop-clean" do
   arch arm: "arm64", intel: "amd64"
 
-  version "4.93.0,240920"
-  sha256 arm:   "bf062f45334c711bd2fc2ed47a5588d050fbb950be3ae3aa4ac9826f04ad4dba",
-         intel: "14b07180f629dd7c16707b371038b30cbf1c8f8f525a1bcd28707b99f9600b20"
+  version "4.96.1,244132"
+  sha256 arm:   "7f99f0bfd921f141f4dc7a146617b56666a4156f4bc5b0d19f2671c8290c3ff0",
+         intel: "3d35634cf3dd0373d37d986de10eb744950d3822124615e774335f7be2a1d27a"
 
   on_intel do
     binary "#{appdir}/Docker.app/Contents/Resources/bin/com.docker.hyperkit",
