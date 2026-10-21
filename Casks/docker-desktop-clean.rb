@@ -32,10 +32,10 @@ cask "docker-desktop-clean" do
   app "Docker.app"
   bash_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.bash-completion"
   bash_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker.bash-completion"
-  fish_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.fish-completion"
-  fish_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker.fish-completion"
   zsh_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion"
   zsh_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker.zsh-completion"
+  fish_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.fish-completion"
+  fish_completion "#{appdir}/Docker.app/Contents/Resources/etc/docker.fish-completion"
   generate_completions_from_executable "Docker.app/Contents/Resources/bin/kubectl",
                                        shell_parameter_format: :cobra
 
